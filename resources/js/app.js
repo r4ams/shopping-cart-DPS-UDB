@@ -20,5 +20,21 @@ if (!inventory.loadInventory()) {
 // Inicialización de la UI
 const storeUI = new StoreUI(inventory);
 
+// Obtener los elementos
+const toggleBtn = document.getElementById('toggle-btn');
+const sidebar = document.getElementById('sidebar');
+const closeButton = document.getElementById('closeSidebar');
+
+// Añadir evento de clic para mostrar/ocultar la barra lateral
+toggleBtn.addEventListener('click', () => {
+    sidebar.classList.toggle('translate-x-full');  // Alterna la visibilidad
+    overlay.classList.remove('hidden');  // Mostrar el overlay
+});
+
+closeButton.addEventListener('click', () => {
+  sidebar.classList.add('translate-x-full');  // Cerrar cuando se haga clic en el botón
+  overlay.classList.add('hidden');  // Ocultar el overlay
+});
+
 // Hacer `storeUI` accesible globalmente
 window.storeUI = storeUI;

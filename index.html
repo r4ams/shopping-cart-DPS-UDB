@@ -19,7 +19,7 @@
             <div class="basis-1/3 md:basis-1/3">
               Lo más vendido
             </div>
-            <div class="basis-1/3 md:basis-1/3">
+            <div  id="toggle-btn" class="basis-1/3 md:basis-1/3">
               Carrito
             </div>
           </div>
@@ -93,6 +93,46 @@
               <button class="bg-[#0038AE] py-2 px-4 rounded-full">Agregar al carrito</button>
             </div> 
           </div>
+        </div>
+      </div>
+    </div>
+    <!-- Overlay (fondo oscuro con opacidad) -->
+    <div id="overlay" class="fixed inset-0 bg-black opacity-50 hidden"></div>
+    <!-- Barra lateral -->
+    <div id="sidebar" class="fixed top-0 right-0 h-full w-1/3 bg-white text-white transform translate-x-full transition-transform duration-300">
+      <div class="flex justify-between p-4 border-b border-[#B0B6BA] mx-2">
+        <h2 class="text-xl text-black">Carrito de compra</h2>
+        <button id="closeSidebar" class="p-2 bg-red-500 rounded-md">Cerrar</button>
+      </div>
+      <div id="cart-container" class="my-10">
+        <div class="flex flex-row px-6">
+          <div class="basis-1/3">
+            <img src="https://placehold.co/200x200" alt="Paracetamol" class="w-full h-48 object-cover mb-4">
+          </div>
+          <div class="basis-2/3 pl-6">
+            <h3 class="text-xl mb-2 text-black">Daflon 500 Mg</h3>
+            <p id="product-description" class="mb-2 text-black">Lorem ipsum dolor, sit amet consectetur</p>
+            <div class="text-center text-black">
+              <p>$$88.88</p>
+              <p>Stock</p>
+              <input type="number" id="qty-1" min="1" max="2" value="1">
+              <button class="bg-[#0038AE] py-2 px-4 rounded-full">Eliminar</button>
+            </div> 
+          </div>
+        </div>
+      </div> 
+      <div id="total" class="border-t border-[#B0B6BA] mx-2 text-black">
+        <div class="flex justify-between p-4">
+          <p>Subtotal</p>
+          <p>$88.88</p>
+        </div>
+        <div class="flex justify-between p-4">
+          <p>Impuesto (15%)</p>
+          <p>$13.33</p>
+        </div>
+        <div class="flex justify-between p-4">
+          <p>Total</p>
+          <p>$107.21</p>
         </div>
       </div>
     </div>
