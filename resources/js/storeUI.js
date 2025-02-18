@@ -12,6 +12,7 @@ class StoreUI {
     this.displayfeaturedProducts();
     this.displayBestProducts();
     this.displayCart();
+    this.updateCartTotals();
   }
 
   displayfeaturedProducts() {
@@ -108,6 +109,7 @@ class StoreUI {
       this.displayfeaturedProducts();
       this.displayBestProducts();
       this.displayCart();
+      this.updateCartTotals();  // Actualiza los totales
     } else {
       alert("Stock insuficiente");
     }
@@ -116,8 +118,32 @@ class StoreUI {
   removeFromCart(productId) {
     this.cart.removeFromCart(productId);
     this.displayCart();
+    this.updateCartTotals();
   }
 
+  updateCartTotals() {
+    const totals = this.cart.getCartTotals();
+
+    const totalContainer = document.getElementById('total');
+    if (totalContainer) {
+        totalContainer.innerHTML = `
+            <div class="mx-2 text-black">
+                <div class="flex justify-between p-2">
+                    <p class="font-semibold">Subtotal</p>
+                    <p>$${totals.subtotal}</p>
+                </div>
+                <div class="flex justify-between p-2">
+                    <p class="font-semibold">Impuesto (12%)</p>
+                    <p>$${totals.tax}</p>
+                </div>
+                <div class="flex justify-between p-2 bg-gray-200 font-bold">
+                    <p>Total</p>
+                    <p>$${totals.total}</p>
+                </div>
+            </div>
+        `;
+    }
+  }
 }
 
 export default StoreUI;
