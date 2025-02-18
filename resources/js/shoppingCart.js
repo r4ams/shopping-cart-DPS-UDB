@@ -36,6 +36,25 @@ class ShoppingCart {
     this.items = this.items.filter(item => item.product.id !== productId);
     this.saveToStorage();
   }
+
+  getCartTotals() {
+    let subtotal = 0;
+
+    this.items.forEach(item => {
+        subtotal += item.quantity * item.product.price;
+    });
+
+    const taxRate = 0.12; // 12% de impuesto
+    const tax = subtotal * taxRate;
+    const total = subtotal + tax;
+
+    return {
+        subtotal: subtotal.toFixed(2),
+        tax: tax.toFixed(2),
+        total: total.toFixed(2)
+    };
+  }
+
 }
 
 export default ShoppingCart;
