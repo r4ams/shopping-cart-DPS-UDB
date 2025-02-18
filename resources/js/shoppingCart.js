@@ -33,9 +33,26 @@ class ShoppingCart {
   }
 
   removeFromCart(productId) {
-    this.items = this.items.filter(item => item.product.id !== productId);
-    this.saveToStorage();
+    // Encontrar el producto en el carrito antes de eliminarlo
+    let cartItem = this.items.find(item => item.product.id === productId);
+
+    if (cartItem) {
+        // Restaurar el stock en el inventario
+        this.inventory.increaseStock(productId, cartItem.quantity);
+
+        // Filtrar los productos del carrito para eliminar el seleccionado
+        this.items = this.items.filter(item => item.product.id !== productId);
+
+        // Guardar cambios en el almacenamiento
+        this.saveToStorage();
+
+        // Actualizar la UI (si tienes un método para esto en StoreUI)
+        window.storeUI.displayCart();
+        window.storeUI.displayfeaturedProducts();
+        window.storeUI.displayBestProducts();
+    }
   }
+
 
   getCartTotals() {
     let subtotal = 0;

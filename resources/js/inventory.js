@@ -26,6 +26,14 @@ class Inventory {
     }
     return false;
   }
+
+  increaseStock(productId, quantity) {
+    let product = this.getProductById(productId);
+    if (product) {
+        product.stock += quantity; // Aumentar stock
+        this.saveInventory(); // Guardar cambios
+    }
+}
 }
 
 export default Inventory;
