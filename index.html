@@ -72,8 +72,27 @@
       </div> 
       <div id="total" class="border-t border-gray-300 mx-2 text-black bg-gray-100 p-4 rounded-md shadow-sm">
       </div>
+      <div class="text-center mt-10">
+        <button onclick="storeUI.generateInvoice()" class="bg-green-500 text-white p-2 rounded-md cursor-pointer">Finalizar Compra</button>
+      </div>  
     </div>
   </section>
+  <!-- Modal para la factura -->
+  <div id="invoiceModal" class="fixed inset-0 flex justify-center items-center bg-gray-800 bg-opacity-50 hidden">
+    <div class="bg-white p-6 rounded-lg shadow-lg max-w-2xl w-full">
+      <h2 class="text-xl font-bold mb-4">Factura de Compra</h2>
+      <div id="invoiceDetails" class="overflow-y-auto max-h-80 mb-4">
+        <!-- Detalles de los productos serán agregados aquí dinámicamente -->
+      </div>
+      <div id="invoiceTotals" class="font-bold text-right">
+        <!-- Totales de la compra -->
+      </div>
+      <div class="flex justify-between mt-4">
+        <button onclick="storeUI.closeInvoiceModal()" class="bg-red-500 text-white p-2 rounded-md">Cerrar</button>
+        <button onclick="storeUI.completePurchase()" class="bg-blue-500 text-white p-2 rounded-md">Finalizar Compra</button>
+      </div>
+    </div>
+  </div>
   <footer class="h-12 bg-[#2950A3]"></footer>
   <script type="module" src="resources/js/app.js"></script>
 </body>

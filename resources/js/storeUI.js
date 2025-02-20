@@ -144,6 +144,50 @@ class StoreUI {
         `;
     }
   }
+
+  generateInvoice() {
+    const cartTotals = storeUI.cart.getCartTotals();
+    const invoiceDetails = storeUI.cart.items.map(item => {
+        return `
+            <div class="flex justify-between mb-2">
+                <span>${item.product.name}</span>
+                <span>${item.quantity} x $${item.product.price.toFixed(2)}</span>
+                <span>$${(item.quantity * item.product.price).toFixed(2)}</span>
+            </div>
+        `;
+    }).join("");
+
+    const totals = `
+        <div class="mb-2">Subtotal: $${cartTotals.subtotal}</div>
+        <div class="mb-2">Impuesto (12%): $${cartTotals.tax}</div>
+        <div class="mb-4">Total: $${cartTotals.total}</div>
+    `;
+
+    // Insertar los detalles y totales en el modal
+    document.getElementById('invoiceDetails').innerHTML = invoiceDetails;
+    document.getElementById('invoiceTotals').innerHTML = totals;
+
+    // Mostrar el modal
+    document.getElementById('invoiceModal').classList.remove('hidden');
+  }
+
+  closeInvoiceModal() {
+    document.getElementById('invoiceModal').classList.add('hidden');
+  }
+
+  completePurchase() {
+    // Aquí puedes vaciar el carrito si la compra ha sido confirmada
+    this.cart.emptyCart();
+
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');  
+    
+    this.displayCart();
+    storeUI.closeInvoiceModal();
+    sidebar.classList.add('translate-x-full');  // Cerrar cuando se haga clic en el botón
+    overlay.classList.add('hidden');
+}
+
 }
 
 export default StoreUI;

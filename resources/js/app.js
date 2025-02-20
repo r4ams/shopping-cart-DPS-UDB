@@ -32,6 +32,7 @@ const storeUI = new StoreUI(inventory, cart);
 const toggleBtn = document.getElementById('toggle-btn');
 const sidebar = document.getElementById('sidebar');
 const closeButton = document.getElementById('closeSidebar');
+const overlay = document.getElementById('overlay');
 
 // Añadir evento de clic para mostrar/ocultar la barra lateral
 toggleBtn.addEventListener('click', () => {

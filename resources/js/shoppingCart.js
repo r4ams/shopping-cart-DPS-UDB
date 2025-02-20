@@ -72,6 +72,12 @@ class ShoppingCart {
     };
   }
 
+  emptyCart() {
+    this.items = [];
+    this.saveToStorage(); // Guardar el carrito vacío en localStorage
+  }
+
+
 }
 
 export default ShoppingCart;
