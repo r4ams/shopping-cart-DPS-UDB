@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,39 +7,51 @@
   <title>Carrito de compras DPS</title>
 </head>
 <body>
-  <header>
+  <header class="sticky top-0 bg-white">
     <nav class="container mx-auto py-5">
       <div class="flex flex-row text-[#0047BB]">
         <div class="basis-1/2 font-black">FarmaBlue</div>
         <div class="basis-1/2">
           <div class="flex flex-row font-semibold">
             <div class="basis-1/6 md:basis-1/3 cursor-pointer">
-              Productos destacados
+              <a href="#featured-products">
+                Productos destacados
+              </a>  
             </div>
             <div class="basis-1/3 md:basis-1/3 cursor-pointer">
-              Lo más vendido
+              <a href="#best-sellers">
+                Lo más vendido
+              </a>
             </div>
-            <div  id="toggle-btn" class="basis-1/3 md:basis-1/3 cursor-pointer">
-              Carrito
+            <div id="toggle-btn" class="basis-1/3 md:basis-1/3 flex items-center  gap-2 cursor-pointer">
+              <div class="relative">
+                  <button id="cartIcon" class="cursor-pointer text-black text-2xl relative flex items-center">
+                    <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M20.6829 16.2476C21.6204 16.2476 22.4454 15.7351 22.8704 14.9603L27.3454 6.84898C27.8079 6.0241 27.2079 4.99925 26.2579 4.99925H7.75786L6.58286 2.49963H2.49536V4.99925H4.99536L9.49536 14.4853L7.80786 17.5349C6.89536 19.2096 8.09536 21.2468 9.99536 21.2468H24.9954V18.7472H9.99536L11.3704 16.2476H20.6829ZM8.94536 7.49888H24.1329L20.6829 13.7479H11.9079L8.94536 7.49888ZM9.99536 22.4966C8.62036 22.4966 7.50786 23.6215 7.50786 24.9963C7.50786 26.3711 8.62036 27.4959 9.99536 27.4959C11.3704 27.4959 12.4954 26.3711 12.4954 24.9963C12.4954 23.6215 11.3704 22.4966 9.99536 22.4966ZM22.4954 22.4966C21.1204 22.4966 20.0079 23.6215 20.0079 24.9963C20.0079 26.3711 21.1204 27.4959 22.4954 27.4959C23.8704 27.4959 24.9954 26.3711 24.9954 24.9963C24.9954 23.6215 23.8704 22.4966 22.4954 22.4966Z" fill="#0047BB"/>
+                    </svg>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-5 w-5 flex items-center justify-center hidden">0</span>
+                  </button>
+              </div>
+              <span class="text-sm">Carrito</span>
             </div>
           </div>
         </div>
       </div>      
     </nav>
-    <div id="slider" class="bg-[url(/resources/images/banner.jpg)] bg-cover h-96 bg-no-repeat">
-      <div class="flex items-stretch h-full container mx-auto">
-        <div class="self-center">
-          <p class="text-6xl text-[#0047BB] font-light">Ahorra tiempo y dinero con</p>
-          <strong class="text-6xl text-[#0047BB]">tu farmacia digital</strong>
-        </div>
+  </header>
+  <div id="slider" class="bg-[url(/resources/images/banner.jpg)] bg-cover h-96 bg-no-repeat">
+    <div class="flex items-stretch h-full container mx-auto">
+      <div class="self-center">
+        <p class="text-6xl text-[#0047BB] font-light">Ahorra tiempo y dinero con</p>
+        <strong class="text-6xl text-[#0047BB]">tu farmacia digital</strong>
       </div>
     </div>
-  </header>
+  </div>
   <section>
-    <div class="container mx-auto py-5">
-      <div id="featured-products" class="p-5">
-        <h2 class="text-2xl text-center">Productos destacados</h2>
-        <p class=" text-center mb-10">Descubre y compra tus favoritos aquí mismo, siempre lo mejor para ti</p>
+    <div class="container mx-auto">
+      <div id="featured-products" class="py-20">
+        <h2 class="text-2xl text-center  text-[#054A9A] text-6xl">Productos destacados</h2>
+        <p class=" text-center my-10  text-[#333F51] text-xl">Descubre y compra tus favoritos aquí mismo, siempre lo mejor para ti</p>
         <div id="product-container" class="grid grid-cols-4 md:grid-cols-4 gap-5">
         </div> 
       </div>
@@ -54,8 +66,8 @@
         </div>
       </div>
       <div id="best-sellers" class="p-5">
-        <h2 class="text-2xl text-center">Lo más vendido</h2>
-        <p class=" text-center mb-10">Descubre y compra tus favoritos aquí mismo, siempre lo mejor para ti</p>
+        <h2 class="text-2xl text-center text-[#054A9A] text-6xl">Lo más vendido</h2>
+        <p class=" text-center mb-10 text-[#333F51] text-xl">Descubre y compra tus favoritos aquí mismo, siempre lo mejor para ti</p>
         <div id="best-product-container"  class="grid grid-cols-4 md:grid-cols-4 gap-5">
         </div>
       </div>
@@ -73,7 +85,7 @@
       <div id="total" class="border-t border-gray-300 mx-2 text-black bg-gray-100 p-4 rounded-md shadow-sm">
       </div>
       <div class="text-center mt-10">
-        <button onclick="storeUI.generateInvoice()" class="bg-green-500 text-white p-2 rounded-md cursor-pointer">Finalizar Compra</button>
+        <button id="generateInvoice" onclick="storeUI.generateInvoice()" class="bg-green-500 text-white p-2 rounded-md cursor-pointer">Ver Factura</button>
       </div>  
     </div>
   </section>
@@ -88,7 +100,7 @@
         <!-- Totales de la compra -->
       </div>
       <div class="flex justify-between mt-4">
-        <button onclick="storeUI.closeInvoiceModal()" class="bg-red-500 text-white p-2 rounded-md">Cerrar</button>
+        <button onclick="storeUI.closeInvoiceModal()" class="bg-red-500 text-white p-2 rounded-md">Seguir Comprando</button>
         <button onclick="storeUI.completePurchase()" class="bg-blue-500 text-white p-2 rounded-md">Finalizar Compra</button>
       </div>
     </div>

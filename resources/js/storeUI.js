@@ -25,12 +25,12 @@ class StoreUI {
         <figure class="mb-4 h-32 flex">
           <img src="${product.image}" alt="${product.name}" class="mx-auto self-center">
         </figure>
-        <h3 class="text-xl mb-2">${product.name}</h3>
-        <p id="product-description" class="mb-2">${product.description}</p>
+        <h3 class="text-xl mb-2 text-[#313638] font-semibold">${product.name}</h3>
+        <p id="product-description" class="mb-2 text-[#7B868C]">${product.description}</p>
         <div class="text-center">
           <div class="flex flex-row pb-6 pt-4">
-            <p class="basis-1/2">Precio: $${product.price}</p>
-            <p class="basis-1/2">Stock: ${product.stock}</p>
+            <p class="basis-1/2 font-bold">Precio: $${product.price}</p>
+            <p class="basis-1/2 font-bold">Stock: ${product.stock}</p>
           </div>
           <div class="flex items-center justify-center space-x-3">
             <label for="qty-${product.id}" class="text-gray-700 font-medium">Cantidad:</label>
@@ -56,12 +56,12 @@ class StoreUI {
         <figure class="mb-4 h-32 flex">
           <img src="${product.image}" alt="${product.name}" class="mx-auto self-center">
         </figure>
-        <h3 class="text-xl mb-2">${product.name}</h3>
-        <p id="product-description" class="mb-2">${product.description}</p>
+        <h3 class="text-xl mb-2 text-[#313638] font-semibold">${product.name}</h3>
+        <p id="product-description" class="mb-2 text-[#7B868C]">${product.description}</p>
         <div class="text-center">
           <div class="flex flex-row pb-6 pt-4">
-            <p class="basis-1/2">Precio: $${product.price}</p>
-            <p class="basis-1/2">Stock: ${product.stock}</p>
+            <p class="basis-1/2 font-bold">Precio: $${product.price}</p>
+            <p class="basis-1/2 font-bold">Stock: ${product.stock}</p>
           </div>
           <div class="flex items-center justify-center space-x-3">
             <label for="qty-${product.id}" class="text-gray-700 font-medium">Cantidad:</label>
@@ -181,12 +181,29 @@ class StoreUI {
 
     const sidebar = document.getElementById('sidebar');
     const overlay = document.getElementById('overlay');  
-    
+
     this.displayCart();
     storeUI.closeInvoiceModal();
+    this.updateCartCount();
+    this.updateCartTotals();
     sidebar.classList.add('translate-x-full');  // Cerrar cuando se haga clic en el botón
     overlay.classList.add('hidden');
-}
+  }
+
+  updateCartCount() {
+    const cartCountElement = document.getElementById("cart-count");
+    const generateInvoiceBtn = document.getElementById("generateInvoice");
+    const totalItems = this.cart.getTotalItems();
+
+    if (totalItems > 0) {
+        cartCountElement.textContent = totalItems;
+        cartCountElement.classList.remove("hidden"); // Mostrar el contador si hay productos
+        generateInvoiceBtn.classList.remove("hidden"); // Muestra el botón de factura
+    } else {
+        cartCountElement.classList.add("hidden"); // Ocultar si el carrito está vacío
+        generateInvoiceBtn.classList.add("hidden"); // Oculta el botón si no hay productos
+    }
+  }
 
 }
 

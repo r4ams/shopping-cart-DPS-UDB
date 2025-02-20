@@ -27,6 +27,9 @@ class ShoppingCart {
 
       this.inventory.reduceStock(productId, quantity);
       this.saveToStorage();
+      // Actualizar el contador del carrito
+      window.storeUI.updateCartCount();
+
       return true;
     }
     return false;
@@ -50,6 +53,8 @@ class ShoppingCart {
         window.storeUI.displayCart();
         window.storeUI.displayfeaturedProducts();
         window.storeUI.displayBestProducts();
+        // Actualizar el contador del carrito
+        window.storeUI.updateCartCount();
     }
   }
 
@@ -77,7 +82,9 @@ class ShoppingCart {
     this.saveToStorage(); // Guardar el carrito vacío en localStorage
   }
 
-
+  getTotalItems() {
+    return this.items.reduce((total, item) => total + item.quantity, 0);
+  }
 }
 
 export default ShoppingCart;

@@ -45,5 +45,9 @@ closeButton.addEventListener('click', () => {
   overlay.classList.add('hidden');  // Ocultar el overlay
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  storeUI.updateCartCount();
+});
+
 // Hacer `storeUI` accesible globalmente
 window.storeUI = storeUI;
