@@ -3,6 +3,11 @@
 Este es un proyecto de carrito de compras desarrollado con **JavaScript**, **Tailwind CSS** y almacenamiento en `localStorage`.  
 Permite agregar productos al carrito, calcular totales, administrar inventario y generar una factura al confirmar la compra.
 
+## 🔗 Enlace al Proyecto
+
+[https://shopping-cart-hramos.netlify.app/](https://shopping-cart-hramos.netlify.app/)
+
+
 ## 🚀 Funcionalidades
 
 ✅ Agregar productos al carrito  
@@ -10,6 +15,8 @@ Permite agregar productos al carrito, calcular totales, administrar inventario y
 ✅ Inventario administrado automáticamente  
 ✅ Generación de factura al finalizar la compra  
 ✅ Almacenamiento en `localStorage` para persistencia de datos
+
+
 
 ## 📌 Cómo Ejecutar el Proyecto
 
