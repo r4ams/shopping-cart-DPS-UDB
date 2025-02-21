@@ -9,7 +9,7 @@ Permite agregar productos al carrito, calcular totales, administrar inventario y
 ✅ Actualización dinámica del total de la compra  
 ✅ Inventario administrado automáticamente  
 ✅ Generación de factura al finalizar la compra  
-✅ Diseño responsivo con **Tailwind CSS**  
+✅ Almacenamiento en `localStorage` para persistencia de datos
 
 ## 📌 Cómo Ejecutar el Proyecto
 
