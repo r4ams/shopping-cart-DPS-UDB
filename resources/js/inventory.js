@@ -17,6 +17,7 @@ class Inventory {
     return this.products.find(product => product.id === id);
   }
 
+  //reducir el stock de un producto cuando se agrega al carrito
   reduceStock(id, quantity) {
     let product = this.getProductById(id);
     if (product && product.stock >= quantity) {

@@ -15,6 +15,7 @@ class StoreUI {
     this.updateCartTotals();
   }
 
+  //cargar productos destacados
   displayfeaturedProducts() {
     this.productContainer.innerHTML = "";
     let featuredProducts = this.inventory.products.filter(product => product.category === 'featured');  
@@ -46,6 +47,7 @@ class StoreUI {
     });
   }
 
+  //cargar productos mas vendidos
   displayBestProducts() {
     this.productBestContainer.innerHTML = "";
     let bestProducts = this.inventory.products.filter(product => product.category === 'best');
@@ -77,6 +79,7 @@ class StoreUI {
     });
   }
 
+  //cargar productos en el carrito
   displayCart() {
     this.cartContainer.innerHTML = "";
     this.cart.items.forEach(item => {
@@ -103,6 +106,7 @@ class StoreUI {
     });
   }
 
+  //actualizar elementos cuando se agregan productos al carrito
   addToCart(productId) {
     let quantity = parseInt(document.getElementById(`qty-${productId}`).value);
     if (this.cart.addToCart(productId, quantity)) {
@@ -115,12 +119,14 @@ class StoreUI {
     }
   }
 
+  //actualizar elementos cuando se eliminan productos al carrito
   removeFromCart(productId) {
     this.cart.removeFromCart(productId);
     this.displayCart();
     this.updateCartTotals();
   }
 
+  //mostrar los totales del carrito
   updateCartTotals() {
     const totals = this.cart.getCartTotals();
 
@@ -145,6 +151,7 @@ class StoreUI {
     }
   }
 
+  //generar factura
   generateInvoice() {
     const cartTotals = storeUI.cart.getCartTotals();
     const invoiceDetails = storeUI.cart.items.map(item => {
@@ -171,10 +178,12 @@ class StoreUI {
     document.getElementById('invoiceModal').classList.remove('hidden');
   }
 
+  //cerar modal de factura
   closeInvoiceModal() {
     document.getElementById('invoiceModal').classList.add('hidden');
   }
 
+  //completar la compra
   completePurchase() {
     // Aquí puedes vaciar el carrito si la compra ha sido confirmada
     this.cart.emptyCart();
@@ -190,6 +199,7 @@ class StoreUI {
     overlay.classList.add('hidden');
   }
 
+  //actualizar el contador del carrito
   updateCartCount() {
     const cartCountElement = document.getElementById("cart-count");
     const generateInvoiceBtn = document.getElementById("generateInvoice");

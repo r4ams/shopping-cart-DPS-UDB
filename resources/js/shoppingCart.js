@@ -14,6 +14,7 @@ class ShoppingCart {
     localStorage.setItem("shoppingCart", JSON.stringify(this.items));
   }
 
+  //agregar un producto al carrito
   addToCart(productId, quantity) {
     let product = this.inventory.getProductById(productId);
 
@@ -35,6 +36,7 @@ class ShoppingCart {
     return false;
   }
 
+  //eliminar un producto del carrito
   removeFromCart(productId) {
     // Encontrar el producto en el carrito antes de eliminarlo
     let cartItem = this.items.find(item => item.product.id === productId);
@@ -58,7 +60,7 @@ class ShoppingCart {
     }
   }
 
-
+  // Obtener los totales del carrito
   getCartTotals() {
     let subtotal = 0;
 

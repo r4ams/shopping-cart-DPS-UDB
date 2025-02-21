@@ -46,7 +46,7 @@ closeButton.addEventListener('click', () => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
-  storeUI.updateCartCount();
+  storeUI.updateCartCount(); // Actualizar el contador del carrito
 });
 
 // Hacer `storeUI` accesible globalmente
